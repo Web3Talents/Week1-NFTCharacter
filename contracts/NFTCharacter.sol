@@ -15,6 +15,7 @@ contract NFTCharacter is ERC721 {
     error Unauthorized();
     error InsufficientFunds();
     error ApproveOrIncreaseAllowance();
+    error TxFailed();
     //since we want to set a price for the minting, we need an admin address who will run functions such as setPrice
     address private admin;
     address private feeCollector;
