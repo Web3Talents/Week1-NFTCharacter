@@ -81,5 +81,16 @@ contract NFTCharacter is ERC721 {
 
 
     }
+    function upgradeCharacter(uint _tokenID) external {
+        if(_tokenID == 0) revert InvalidInput();
+        if (ownerOf(_tokenID) != msg.sender) revert Unauthorized();
+        CharAttributes storage character = attributes[_tokenID];
+      //  if(character.xp != character.maxXp) revert MoreXpRequired();
+        character.level++;
+        character.xp = 0;
+        character.power+=5;
+        character.maxXp+=5;
+        
+    }
 
 }
